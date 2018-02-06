@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="utf-8"></meta>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<title layout:tittle-pattern="$DECORATOR_TITLE - $CONTENT_TITLE">JCart
+	Admin</title>
+<!-- Tell the browser to be responsive to screen width -->
+<link rel="stylesheet" href="css/bootstrap.min.css" />
+<link rel="stylesheet" href="css/AdminLTE.min.css" />
+<link rel="stylesheet" href="css/skin-blue.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="css/ionicons.min.css" />
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+	<div class="wrapper">
+		<!-- Main Header -->
+		<header class="main-header">
+
+			<!-- Logo -->
+			<a href="#" class="logo"> <span class="logo-mini"><b>CL</b></span>
+				<span class="logo-lg"><b>Clinic Lite</b></span>
+			</a>
+
+			<!-- Header navbar -->
+			<nav class="navbar navbar-static-top" role="navigation">
+				<!-- Sidebar toggle button -->
+				<a href="#" class="sidebar-toggle" data-toggle="push-menu"
+					role="button"><span class="sr-only">Toggle navigation</span></a>
+
+				<!-- Navbar Right Menu -->
+				<div class="navbar-custom-menu">
+					<ul class="nav navbar-nav">
+						<!-- User Account Menu -->
+						<li class="dropdown user user-menu"><a href="#"
+							class="dropdown-toggle" data-toggle="dropdown"> <!-- The user image in the navbar -->
+								<img th:src="@{/images/user.png}" class="user-image"
+								alt="User Image" /> <span class="hidden-xs">User</span>
+						</a>
+
+							<ul class="dropdown-menu">
+								<!-- The user image in the menu -->
+								<li class="user-header"><img alt="User Image"
+									th:src="@{/images/user.png}" class="img-circle" />
+									<p>
+										<span>User Name</span>
+									</p></li>
+
+								<!-- Menu Footer -->
+								<li class="user-footer">
+									<div class="pull-left">
+										<a href="#" class="btn btn-default btn-flat">Profile</a>
+									</div>
+
+									<div class="pull-right">
+										<a href="#" class="btn btn-default btn-flat">Sign Out</a>
+									</div>
+								</li>
+							</ul></li>
+					</ul>
+				</div>
+			</nav>
+		</header>
+
+		<!-- Left side column. Contains the logo and sidebar. -->
+		<aside class="main-sidebar">
+			<!-- sidebar: style can be found in sidebar.less -->
+			<section class="sidebar">
+				<ul class="sidebar-menu">
+					<li th:class="${CURRENT_MENU == 'Home'}? 'active' :''"><a
+						href="#" th:href="@{'/'}"><i class="fa fa-home"></i><span>Home</span></a></li>
+					<li th:class="${CURRENT_MENU == 'User'}? 'active' :''"><a
+						href="#" th:href="@{'/add'}"><i class="fa fa-user"
+							aria-hidden="true"></i><span>Users</span></a></li>
+				</ul>
+			</section>
+		</aside>
+
+		<!-- Content wrapper/ Contains page content -->
+		<div class="content-wrapper">
+			<div layout:fragment="pageHeader">
+				<section class="content-header">
+					<h1 th:text="${headerTitle}">Manage Roles</h1>
+					<div th:if="${info}"
+						class="col-md-3 alert alert-info alert-dismissable">
+						<button type="button" class="close" data-dismiss="alert"
+							aria-hidden="true">&times;</button>
+						<p>
+							<i class="icon fa fa-info"></i> <span th:text="${info}">Info</span>
+						</p>
+					</div>
+
+					<div th:if="${error}"
+						class="col-md-3 alert alert-danger alert-dismissable">
+						<button type="button" class="close" data-dismiss="alert"
+							aria-hidden="true">&times;</button>
+						<p>
+							<i class="icon fa fa-ban"></i> <span th:text="${error}">Error</span>
+						</p>
+					</div>
+				</section>
+			</div>
+
+			<!-- Main content -->
+			<section class="content">
+				<div layout:fragment="content">
+					<!-- Your Page Content Here -->
+				</div>
+
+			</section>
+			<!-- /.content -->
+		</div>
+
+		<!-- Main footer -->
+		<footer class="main-footer">
+			<!-- To the right -->
+			<div class="pull-right hidden-xs">
+				<strong><a href="#" target="_blank">Tri Mulyanto</a></strong>
+			</div>
+
+			<!-- Default to the left -->
+			<strong>Copyright &copy; 2018 <a href="#"> Tri mulyanto
+			</a></strong>All rights reserved.
+		</footer>
+	</div>
+
+	<script th:src="@{'/js/bootstrap.min.js'}"></script>
+	<script th:src="@{'/js/jquery-ui.min.js'}"></script>
+	<script th:src="@{'/js/jquery.min.js'}"></script>
+	<script th:src="@{'/js/adminlte.min.js'}"></script>
+</body>
+</html>
